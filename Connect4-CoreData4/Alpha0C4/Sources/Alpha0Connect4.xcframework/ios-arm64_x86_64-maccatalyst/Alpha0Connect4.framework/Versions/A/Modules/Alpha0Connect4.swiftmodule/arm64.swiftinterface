@@ -1,0 +1,74 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Alpha0Connect4
+@_exported import Alpha0Connect4
+import CoreML
+import Foundation
+import Swift
+import _Concurrency
+extension Alpha0Connect4.GameSession {
+  public enum State {
+    case cleared
+    case idle(Alpha0Connect4.GameSession.DiscColor)
+    case thinking(Alpha0Connect4.GameSession.DiscColor)
+    case ended(Alpha0Connect4.GameSession.DiscColor?)
+  }
+  public enum DiscColor : Swift.Int, Swift.CustomStringConvertible {
+    public var description: Swift.String {
+      get
+    }
+    case red
+    case yellow
+    prefix public static func ! (color: Alpha0Connect4.GameSession.DiscColor) -> Alpha0Connect4.GameSession.DiscColor
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+}
+public protocol GameSessionProtocol {
+  typealias SessionState = Alpha0Connect4.GameSession.State
+  typealias DiscColor = Alpha0Connect4.GameSession.DiscColor
+  func stateChanged(_ gameSession: Alpha0Connect4.GameSession, state: Self.SessionState, for playerTurn: Self.DiscColor, textLog: Swift.String)
+  func didDropDisc(_ gameSession: Alpha0Connect4.GameSession, color: Self.DiscColor, at location: (row: Swift.Int, column: Swift.Int), index: Swift.Int, textLog: Swift.String)
+  func turnToPlay(_ gameSession: Alpha0Connect4.GameSession, color: Self.DiscColor)
+  func didEnd(_ gameSession: Alpha0Connect4.GameSession, color: Self.DiscColor?, winningActions: [(row: Swift.Int, column: Swift.Int)])
+}
+public class GameSession {
+  public var playedActions: [Swift.Int] {
+    get
+  }
+  public var playerPositions: [(row: Swift.Int, column: Swift.Int)] {
+    get
+  }
+  public var state: Alpha0Connect4.GameSession.State {
+    get
+  }
+  public var winningPositions: [(row: Swift.Int, column: Swift.Int)] {
+    get
+  }
+  public var delegate: Alpha0Connect4.GameSessionProtocol?
+  public var TAU0: Swift.Int {
+    get
+    set
+  }
+  public var MCTS_SIMS: Swift.Int {
+    get
+    set
+  }
+  public init()
+  public func startGame(delegate: Alpha0Connect4.GameSessionProtocol? = nil, botPlays botColor: Alpha0Connect4.GameSession.DiscColor = .yellow, first botStarts: Swift.Bool = false, initialPositions: [(row: Swift.Int, column: Swift.Int)] = [(Int, Int)]())
+  public func dropDisc()
+  public func dropDiscAt(_ column: Swift.Int)
+  public func isValidMove(_ column: Swift.Int) -> Swift.Bool
+  public var boardLayout: (rows: Swift.Int, columns: Swift.Int) {
+    get
+  }
+  public static let actions: [Swift.Int]
+  public static let positions: [(row: Swift.Int, column: Swift.Int)]
+  @objc deinit
+}
+extension Alpha0Connect4.GameSession.DiscColor : Swift.Equatable {}
+extension Alpha0Connect4.GameSession.DiscColor : Swift.Hashable {}
+extension Alpha0Connect4.GameSession.DiscColor : Swift.RawRepresentable {}

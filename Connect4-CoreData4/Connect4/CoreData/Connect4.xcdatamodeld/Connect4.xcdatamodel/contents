@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoreDataDisc" representedClassName=".CoreDataDisc" syncable="YES" codeGenerationType="category">
+        <attribute name="column" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="index" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isWinning" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="row" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataSession" inverseName="discs" inverseEntity="CoreDataSession"/>
+    </entity>
+    <entity name="CoreDataSession" representedClassName=".CoreDataSession" syncable="YES" codeGenerationType="category">
+        <attribute name="botColor" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="botIsFirst" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="columns" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="discCount" optional="YES" attributeType="Integer 64" derived="YES" derivationExpression="discs.@count" usesScalarValueType="YES"/>
+        <attribute name="log" attributeType="String"/>
+        <attribute name="rows" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="discs" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CoreDataDisc" inverseName="session" inverseEntity="CoreDataDisc"/>
+    </entity>
+    <elements>
+        <element name="CoreDataDisc" positionX="-263.5126953125" positionY="-329.5440673828125" width="128" height="104"/>
+        <element name="CoreDataSession" positionX="-302.6865234375" positionY="-575.36865234375" width="128" height="134"/>
+    </elements>
+</model>

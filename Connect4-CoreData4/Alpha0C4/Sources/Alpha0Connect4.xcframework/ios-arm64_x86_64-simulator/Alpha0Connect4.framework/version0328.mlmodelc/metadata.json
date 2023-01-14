@@ -1,0 +1,71 @@
+[
+  {
+    "metadataOutputVersion" : "3.0",
+    "storagePrecision" : "Float32",
+    "outputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 1)",
+        "shortDescription" : "",
+        "shape" : "[1]",
+        "name" : "output1",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 42)",
+        "shortDescription" : "",
+        "shape" : "[42]",
+        "name" : "output2",
+        "type" : "MultiArray"
+      }
+    ],
+    "modelParameters" : [
+
+    ],
+    "specificationVersion" : 1,
+    "computePrecision" : "Float16",
+    "isUpdatable" : "0",
+    "availability" : {
+      "macOS" : "10.13",
+      "tvOS" : "11.0",
+      "watchOS" : "4.0",
+      "iOS" : "11.0",
+      "macCatalyst" : "11.0"
+    },
+    "neuralNetworkLayerTypeHistogram" : {
+      "ActivationLeakyReLU" : 14,
+      "Flatten" : 2,
+      "Add" : 5,
+      "Permute" : 26,
+      "ActivationTanh" : 1,
+      "BatchNorm" : 13,
+      "Convolution" : 13,
+      "InnerProduct" : 3
+    },
+    "modelType" : {
+      "name" : "MLModelType_neuralNetwork"
+    },
+    "userDefinedMetadata" : {
+
+    },
+    "generatedClassName" : "version0328",
+    "inputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 2 × 6 × 7)",
+        "shortDescription" : "",
+        "shape" : "[2, 6, 7]",
+        "name" : "input1",
+        "type" : "MultiArray"
+      }
+    ],
+    "method" : "predict"
+  }
+]
